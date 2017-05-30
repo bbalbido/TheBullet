@@ -8,19 +8,21 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" groups=[
+"pickupable",
+]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1.66785, 0, 0, 1.66785, -0.0932126, 0.0932126 )
-shapes/0/trigger = true
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 mode = 0
 mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
+friction = 0.8
+bounce = 0.75
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -33,19 +35,22 @@ damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-layer = 2
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
+transform/pos = Vector2( 2.38374, 8.05777 )
+transform/scale = Vector2( 3.39063, 3.51898 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( -0.0932126, 0.0932126 )
 transform/scale = Vector2( 1.66785, 1.66785 )
 shape = SubResource( 1 )
-trigger = true
+trigger = false
 _update_shape_index = 0
 
 [node name="BulletSprite" type="Sprite" parent="."]

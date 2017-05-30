@@ -18,8 +18,15 @@ func _ready():
 	set_process_input(true)
 	count = 1
 	RayNode = get_node("RayCast2D")
+	get_node("pickupArea").connect("area_enter", self, "_on_enemy_body_enter")
+	#get_node("pickupArea").set_contact_monitor(true)
+	#get_node("pickupArea").set_max_contacts_reported(5)
+
 	pass
 
+
+func _on_enemy_body_enter(body):
+    print("Collision2")
 # Note: _input is only used when set_process_input(true) is set to true
 func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON):
@@ -64,3 +71,10 @@ func _fixed_process(delta):
 	mouseLoc = get_node("Camera2D").get_global_mouse_pos()
 	var angle = get_pos().angle_to_point(mouseLoc)
 	get_node("Shadow").set_rot(angle)
+	
+	
+	#Collision with bullet
+	#if is_colliding():
+		##var collider = get_collider()
+		#if collider extends bullet:
+		#	print("penis");
