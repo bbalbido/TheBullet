@@ -7,6 +7,7 @@ func _ready():
 	pass
 
 func on_pickup(body):
-	if (body.is_in_group("pickupable")):
-		get_parent().isAlive = false
+	if (body.is_in_group("pickupable") ):
+		#get_node("parent").isAlive = false
 		print("DEAD")
+		#get_node("parent").free()

@@ -49,7 +49,7 @@ func _fixed_process(delta):
 	if(is_colliding()):
 		var shape = get_collider()
 		if (shape.is_in_group("pickupable")):
-			count += 1
+			count = 1
 			shape.free()
 	
 	if(Input.is_action_pressed("ui_up")):
@@ -67,10 +67,10 @@ func _fixed_process(delta):
 		#RayNode.set_rotd(-90)
 		
 	# This is using project setting custom UI Control 
-	if(Input.is_action_pressed("ui_mouse_left")):
+	#if(Input.is_action_pressed("ui_mouse_left")):
 		#motion+= Vector2(200,0)
 		#var bullet1 = bullet.instance()
-		root_node.add_child(bullet.instance())
+		#root_node.add_child(bullet.instance())
 
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move(motion)

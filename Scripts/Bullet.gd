@@ -12,7 +12,7 @@ func set_dir(var PlayerDir, var MouseLoc):
 	
 	var BulletVector = MouseLoc - PlayerDir;
 	BulletVector = BulletVector.normalized();
-	set_pos(PlayerDir  + (BulletVector * 60))
+	set_pos(PlayerDir  + (BulletVector * 85))
 	set_linear_velocity(BulletVector * speed);
 	connect("body_enter", self, "_on_enemy_body_enter")
 	#if we want it to be based off of mouse position Don't normalize the Bullect Vector
@@ -28,6 +28,8 @@ func _on_enemy_body_enter(body):
 	if(body.get_name() == "Player"):
 		body.count += 1;
 		queue_free()
+	if(body.is_in_group("enemy")):
+		body.queue_free()
 		
 func _fixed_process(delta):
 	pass
