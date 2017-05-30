@@ -18,7 +18,7 @@ func _ready():
 	set_process_input(true)
 	count = 1
 	RayNode = get_node("RayCast2D")
-	get_node("pickupArea").connect("area_enter", self, "_on_enemy_body_enter")
+	#get_node("pickupArea").connect("area_enter", self, "_on_enemy_body_enter")
 	Globals.set("playerLocation", get_pos())
 	#get_node("pickupArea").set_contact_monitor(true)
 	#get_node("pickupArea").set_max_contacts_reported(5)
@@ -39,13 +39,18 @@ func _input(event):
 				cur.set_dir(get_pos(), mouseLoc)
 				# Get Owner only gets immediate node above it
 				root_node.get_owner().add_child(cur)
-				print(str("ENTERED INPUT!"))
 				count = count - 1
 
 func _fixed_process(delta):
 	# every frame execution
 	var motion = Vector2()
 	#motion
+	
+	if(is_colliding()):
+		var shape = get_collider()
+		if (shape.is_in_group("pickupable")):
+			count += 1
+			shape.free()
 	
 	if(Input.is_action_pressed("ui_up")):
 		motion += Vector2(0, -1) #add 0 to x and -1 to y
@@ -66,7 +71,7 @@ func _fixed_process(delta):
 		#motion+= Vector2(200,0)
 		#var bullet1 = bullet.instance()
 		root_node.add_child(bullet.instance())
-		print(str("ENTERED INPUT!"))
+
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move(motion)
 	mouseLoc = get_node("Camera2D").get_global_mouse_pos()

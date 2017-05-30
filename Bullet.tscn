@@ -35,16 +35,6 @@ damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-transform/pos = Vector2( -0.115995, -0.0499954 )
-transform/scale = Vector2( 1.71875, 1.76563 )
-input/pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( -0.0932126, 0.0932126 )
