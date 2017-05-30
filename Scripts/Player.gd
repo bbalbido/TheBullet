@@ -19,6 +19,7 @@ func _ready():
 	count = 1
 	RayNode = get_node("RayCast2D")
 	get_node("pickupArea").connect("area_enter", self, "_on_enemy_body_enter")
+	Globals.set("playerLocation", get_pos())
 	#get_node("pickupArea").set_contact_monitor(true)
 	#get_node("pickupArea").set_max_contacts_reported(5)
 
@@ -71,7 +72,7 @@ func _fixed_process(delta):
 	mouseLoc = get_node("Camera2D").get_global_mouse_pos()
 	var angle = get_pos().angle_to_point(mouseLoc)
 	get_node("Shadow").set_rot(angle)
-	
+	Globals.set("playerLocation", get_pos())
 	
 	#Collision with bullet
 	#if is_colliding():

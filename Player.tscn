@@ -12,6 +12,9 @@ extents = Vector2( 31, 31 )
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -61,6 +64,7 @@ _update_shape_index = 0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
+transform/rot = 180.0
 enabled = false
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
@@ -69,5 +73,14 @@ type_mask = 15
 [node name="Shadow" type="Sprite" parent="."]
 
 texture = ExtResource( 3 )
+
+[node name="Collision1" type="CollisionShape2D" parent="." groups=[
+"isPlayer",
+]]
+
+visibility/visible = false
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
