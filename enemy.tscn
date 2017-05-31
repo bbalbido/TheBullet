@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
-[ext_resource path="res://Pictures/enemy.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/EnemyPickupp.gd" type="Script" id=2]
+[ext_resource path="res://Pictures/enemy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -14,25 +15,47 @@ extents = Vector2( 10, 10.3839 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.26288, 0, 0, 3.19346, 0.40631, 0.433888 )
+shapes/0/transform = Matrix32( 3.21114, 0, 0, 3.10456, -0.076769, -0.0354953 )
 shapes/0/trigger = false
 collision/layers = 1
-collision/mask = 1
+collision/mask = 524289
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 isAlive = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.21114, 0, 0, 3.10456, -0.076769, -0.0354953 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 2
+collision/mask = 2
+script/script = ExtResource( 2 )
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( -0.076769, -0.0354953 )
+transform/scale = Vector2( 3.21114, 3.10456 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0.40631, 0.433888 )
-transform/scale = Vector2( 3.26288, 3.19346 )
+transform/pos = Vector2( -0.076769, -0.0354953 )
+transform/scale = Vector2( 3.21114, 3.10456 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 

@@ -8,6 +8,5 @@ func _ready():
 
 func on_pickup(body):
 	if (body.is_in_group("pickupable") ):
-		#get_node("parent").isAlive = false
-		print("DEAD")
-		#get_node("parent").free()
+		var parent = get_parent()
+		parent.queue_free()

@@ -14,10 +14,10 @@ radius = 17.5259
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.961538, 0, 0, 1.68421, -0.615998, 0.449997 )
+shapes/0/transform = Matrix32( 0.653997, 0, 0, 1.64035, 0.0774773, 0.313403 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 2
+collision/mask = 524290
 mode = 0
 mass = 1.0
 friction = 0.9
@@ -37,8 +37,8 @@ script/script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.615998, 0.449997 )
-transform/scale = Vector2( 0.961538, 1.68421 )
+transform/pos = Vector2( 0.0774773, 0.313403 )
+transform/scale = Vector2( 0.653997, 1.64035 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
