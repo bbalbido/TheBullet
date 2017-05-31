@@ -3,7 +3,7 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var speed = 100
+var speed = 300
 var angle 
 
 func set_dir(var PlayerDir, var MouseLoc):

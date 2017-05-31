@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31, 31 )
+extents = Vector2( 29, 29 )
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -28,7 +28,7 @@ MOTION_SPEED = 140
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 2, 2 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000

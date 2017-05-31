@@ -21,12 +21,12 @@ func _fixed_process(delta):
 	#print(get_node("RayCast2D").get_collision_point())
 	#if we want bullet to collide we need to add player code
 	_checkAggro()
-	if(aggro && !reload):
+	if(aggro && (reload <= 0)):
 		_shoot()
 	#death
 	reload = reload - 1
-	print(aggro)
 func _shoot():
+	
 	reload = reloadMax
 	var bulletVector = pLoc - get_pos()
 	bulletVector.normalized()
