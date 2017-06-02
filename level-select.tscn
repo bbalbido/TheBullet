@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://temp_level_select.png" type="Texture" id=1]
-[ext_resource path="res://level-01.png" type="Texture" id=2]
+[ext_resource path="res://Pictures/temp_level_select.png" type="Texture" id=1]
+[ext_resource path="res://Pictures/level-01.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/go-button.gd" type="Script" id=3]
-[ext_resource path="res://red-button.png" type="Texture" id=4]
+[ext_resource path="res://Pictures/red-button.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/controls-back-button.gd" type="Script" id=5]
 
 [node name="level-select" type="TextureFrame"]
