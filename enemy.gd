@@ -7,8 +7,8 @@ onready var bullet = preload("res://enemyBullet.tscn")
 onready var root_node = get_node(".")
 export var isAlive = true
 var aggro = false;
-var reloadMax = 90
-var reload = 90
+export var reloadMax = 90
+export var reload = 90
 var pLoc
 func _ready():
 	# Called every time the node is added to the scene.

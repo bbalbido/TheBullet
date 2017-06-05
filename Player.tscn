@@ -19,7 +19,7 @@ collision/layers = 1
 collision/mask = 524289
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-MOTION_SPEED = 140
+MOTION_SPEED = 163
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
