@@ -31,7 +31,5 @@ transform/pos = Vector2( 592, 704 )
 [node name="Node2D 2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1024, 144 )
-reloadMax = 90
-reload = 90
 
 
