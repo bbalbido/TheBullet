@@ -10,6 +10,7 @@ var aggro = false;
 export var reloadMax = 90
 export var reload = 90
 var pLoc
+#export var maxRotate = .000000001;
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -38,9 +39,14 @@ func _checkAggro():
 	var space_state = get_world_2d().get_direct_space_state()
 	pLoc = playervariables.get("playerLocation")
 	var result =space_state.intersect_ray(get_pos(), pLoc, [self])#.linear_interpolate(get_pos(),2.0) )#need to add thrid paramater of own ri
+	
 	if(result.size() && result.rid.get_id() == playervariables.get("playerRID") ):
+		if(result.normal == Vector2(0, 1)):
+			print(result.normal)
 		#interpolatedLine = result.position
 		var angle = get_pos().angle_to_point(pLoc)
+		#if(angle > maxRotate):
+			#angle = -1 * maxRotate if (angle < 0) else maxRotate
 		set_rot(angle)
 		aggro = true
 	else: 

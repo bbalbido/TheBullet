@@ -22,7 +22,7 @@ collision/mask = 524290
 mode = 0
 mass = 1.0
 friction = 1.0
-bounce = 0.6
+bounce = 0.9
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
@@ -32,10 +32,10 @@ sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
-damp_override/linear = -1.0
+damp_override/linear = 0.5
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-speed = 1100
+speed = 1500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

@@ -22,6 +22,8 @@ collision/mask = 524289
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 isAlive = true
+reloadMax = 90
+reload = 90
 
 [node name="Area2D" type="Area2D" parent="."]
 
