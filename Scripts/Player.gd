@@ -66,7 +66,9 @@ func _fixed_process(delta):
 	if(Input.is_action_pressed("ui_left")):
 		motion+= Vector2(-1, 0)
 		#RayNode.set_rotd(-90)
-		
+	if(Input.is_action_pressed("reset")):
+		get_tree().reload_current_scene()
+		#get_tree().change_scene(playervariables.get("playerLevel"))
 	# This is using project setting custom UI Control 
 	#if(Input.is_action_pressed("ui_mouse_left")):
 		#motion+= Vector2(200,0)

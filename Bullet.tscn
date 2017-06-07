@@ -15,14 +15,14 @@ height = 20.0
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.01923, 0, 0, 1.56522, -0.365998, -0.83 )
+shapes/0/transform = Matrix32( 0.884615, 0, 0, 1.32609, -0.115998, 0.169999 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 524290
 mode = 0
 mass = 1.0
 friction = 1.0
-bounce = 0.6
+bounce = 0.9
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
@@ -32,21 +32,23 @@ sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
-damp_override/linear = -1.0
+damp_override/linear = 0.65
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-speed = 1100
+speed = 1500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.365998, -0.83 )
-transform/scale = Vector2( 1.01923, 1.56522 )
+transform/pos = Vector2( -0.115998, 0.169999 )
+transform/scale = Vector2( 0.884615, 1.32609 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="BulletSprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0.0178962, -0.165001 )
+transform/scale = Vector2( 0.84821, 0.876482 )
 texture = ExtResource( 2 )
 
 
