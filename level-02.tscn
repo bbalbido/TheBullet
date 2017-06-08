@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://walls.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
 
 [node name="Level1" type="Node2D"]
 
@@ -31,5 +32,10 @@ transform/pos = Vector2( 592, 704 )
 [node name="Node2D 2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1024, 144 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 926.614, 31.1461 )
+dest = "res://level-03.tscn"
 
 

@@ -4,6 +4,8 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 
+export var dest = ""
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -19,7 +21,7 @@ func _on_enemy_body_enter(body):
 		# body.queue_free()
 		#get_tree().reload_current_scene() #should really be play player death animation and let player reset scene
 		# get_tree().change_scene("res://main-menu.tscn")
-		get_tree().change_scene("res://level-02.tscn")
+		get_tree().change_scene(dest)
 
 func _fixed_process(delta):
 	pass
