@@ -9,7 +9,7 @@
 
 [node name="TileMap" type="TileMap" parent="."]
 
-transform/pos = Vector2( -234, -30 )
+transform/pos = Vector2( -246, -34 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 64, 64 )
@@ -28,7 +28,7 @@ tile_data = IntArray( -589816, 0, -589815, 0, -589814, 0, -589813, 0, -589812, 0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 311.41, 525.231 )
+transform/pos = Vector2( 703.41, 189.231 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 
@@ -53,6 +53,6 @@ transform/pos = Vector2( -204, 100 )
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 606.24, 175.834 )
-dest = "res://level-02.tscn"
+dest = "res://winning.tscn"
 
 
