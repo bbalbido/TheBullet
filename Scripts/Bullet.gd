@@ -22,6 +22,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	set_contact_monitor(true)
 	set_max_contacts_reported(5)
+	get_node("SamplePlayer").play("shoot")
 	pass
 	
 func _on_enemy_body_enter(body):
@@ -30,6 +31,7 @@ func _on_enemy_body_enter(body):
 		queue_free()
 	if(body.is_in_group("enemy")):
 		body.queue_free()
+		
 		
 func _fixed_process(delta):
 	pass

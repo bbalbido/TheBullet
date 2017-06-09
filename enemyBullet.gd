@@ -3,7 +3,7 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var speed = 300
+var speed = 475
 var angle 
 
 func set_dir(var PlayerDir, var MouseLoc):
@@ -28,6 +28,7 @@ func _on_enemy_body_enter(body):
 
 func _ready():
 	# Called every time the node is added to the scene.
+	get_node("SamplePlayer").play("laser")
 	set_contact_monitor(true)
 	set_max_contacts_reported(5)
 	pass
