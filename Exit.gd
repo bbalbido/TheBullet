@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,19 +9,15 @@ export var dest = ""
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	print("Readying Exit")
-	set_contact_monitor(true)
-	set_max_contacts_reported(5)
-	connect("body_enter", self, "_on_enemy_body_enter")
+	set_fixed_process(true)
+	set_enable_monitoring(true)
 	pass
 
-func _on_enemy_body_enter(body):
-	if(body.get_name() == "Player"):
-		print("Hello world")
-		# body.queue_free()
-		#get_tree().reload_current_scene() #should really be play player death animation and let player reset scene
-		# get_tree().change_scene("res://main-menu.tscn")
-		get_tree().change_scene(dest)
-
 func _fixed_process(delta):
+	var contactList = get_overlapping_bodies()
+	
+	for i in range(contactList.size()):
+		if(contactList[i].get_name() == "Player"):
+			get_tree().change_scene(dest)
+	
 	pass

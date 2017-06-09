@@ -72,7 +72,7 @@ transform/pos = Vector2( -204, 100 )
 
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 269.376, 412.876 )
+transform/pos = Vector2( 278.24, 227.834 )
 dest = "res://level-02.tscn"
 
 

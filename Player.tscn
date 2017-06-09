@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerPickup.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Pictures/sprite0.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,8 +17,8 @@ extents = Vector2( 29, 29 )
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 2.4, 0, 0, 2.4, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 524289
@@ -78,7 +83,8 @@ texture = ExtResource( 3 )
 "isPlayer",
 ]]
 
-shape = SubResource( 1 )
+transform/scale = Vector2( 2.4, 2.4 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
