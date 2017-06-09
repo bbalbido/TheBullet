@@ -1,13 +1,12 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://bullet.png" type="Texture" id=2]
+[ext_resource path="res://Pictures/bullet.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
-height = 20.0
 
 [node name="Bullet" type="RigidBody2D" groups=[
 "pickupable",
@@ -15,7 +14,7 @@ height = 20.0
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.884615, 0, 0, 1.32609, -0.115998, 0.169999 )
+shapes/0/transform = Matrix32( 1.1, 0, 0, 1.1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 524290
@@ -39,16 +38,14 @@ speed = 1500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.115998, 0.169999 )
-transform/scale = Vector2( 0.884615, 1.32609 )
+transform/scale = Vector2( 1.1, 1.1 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="BulletSprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0.0178962, -0.165001 )
-transform/scale = Vector2( 0.84821, 0.876482 )
+transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
 
 

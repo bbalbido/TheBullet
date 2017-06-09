@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://walls.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
@@ -32,61 +33,46 @@ transform/pos = Vector2( 311.41, 525.231 )
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -48, 282 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 536, -178 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy8" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1428, 586 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1544, 410 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1116, 438 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy6" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 952, 90 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy7" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1972, 198 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 684, -22 )
-reloadMax = 90
-reload = 90
 
 [node name="Enemy1" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 360, -14 )
-reloadMax = 90
-reload = 90
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -204, 100 )
-reloadMax = 90
-reload = 90
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278.24, 227.834 )
+dest = "res://level-02.tscn"
 
 
