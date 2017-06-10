@@ -28,7 +28,7 @@ tile_data = IntArray( -589816, 0, -589815, 0, -589814, 0, -589813, 0, -589812, 0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 703.41, 189.231 )
+transform/pos = Vector2( 298.98, 559.579 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 
