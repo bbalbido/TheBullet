@@ -5,6 +5,7 @@ extends Area2D
 # var b = "textvar"
 
 export var dest = ""
+onready var globalSound = get_node("/root/globalmusic")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -16,6 +17,7 @@ func _ready():
 
 func on_exit(body):
 	if(body.get_name() == "Player"):
+		globalSound.exitSound()
 		get_tree().change_scene(dest)
 
 func _process(delta):
