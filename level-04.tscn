@@ -46,11 +46,11 @@ tile_data = IntArray( -458754, 0, -458753, 0, -524288, 0, -524287, 0, -524286, 0
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 725.61, 534.28 )
+transform/pos = Vector2( 548.72, 483.74 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 28.88, -350.17 )
+transform/pos = Vector2( 249.089, -339.34 )
 
 [node name="Node2D 3" parent="." instance=ExtResource( 5 )]
 
@@ -66,6 +66,6 @@ transform/pos = Vector2( 324.792, 92.2995 )
 
 [node name="Node2D 2 2" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 180.392, 489.399 )
+transform/pos = Vector2( 129.852, 301.679 )
 
 
