@@ -3,7 +3,7 @@ extends KinematicBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"\
-export var MOTION_SPEED = 300 #export means public? means that the node extends will be shown
+export var MOTION_SPEED = 350 #export means public? means that the node extends will be shown
 # TODO(kjayakum): Update the path of the bullet to the bullet scene or group
 onready var bullet = preload("res://Bullet.tscn")
 onready var root_node = get_node(".")
@@ -27,8 +27,8 @@ func _ready():
 	pass
 
 
-func _on_enemy_body_enter(body):
-    print("Collision2")
+#func _on_enemy_body_enter(body):
+    #print("Collision2")
 # Note: _input is only used when set_process_input(true) is set to true
 func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON):
@@ -77,6 +77,17 @@ func _fixed_process(delta):
 
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move(motion)
+	if (is_colliding()):
+        var n = get_collision_normal()
+        motion = n.slide(motion)
+        move(motion)
+	
+	
+	
+	
+	
+	
+	
 	mouseLoc = get_node("Camera2D").get_global_mouse_pos()
 	var angle = get_pos().angle_to_point(mouseLoc)
 	get_node("Shadow").set_rot(angle)

@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 12.5
 
 [sub_resource type="SampleLibrary" id=2]
 
@@ -24,14 +24,14 @@ samples/shoot = {
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.1, 0, 0, 1.1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.174499, 0.174499 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 524290
 mode = 0
-mass = 1.0
+mass = 7.0
 friction = 1.0
-bounce = 0.9
+bounce = 1.0
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
@@ -44,14 +44,7 @@ velocity/angular = 0.0
 damp_override/linear = 0.65
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-speed = 1500
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-transform/scale = Vector2( 1.1, 1.1 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
+speed = 1300
 
 [node name="BulletSprite" type="Sprite" parent="."]
 
@@ -74,5 +67,12 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.174499, 0.174499 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
