@@ -100,11 +100,12 @@ __meta__ = {
 
 [node name="Sprite4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 510, 33 )
+transform/pos = Vector2( 508, 33 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite4"]
 
+transform/pos = Vector2( -1, 0 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, -1 )
@@ -129,12 +130,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite6" type="Sprite" parent="."]
+[node name="uprightTri" type="Sprite" parent="."]
 
 transform/pos = Vector2( 736, 34 )
 texture = ExtResource( 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite6"]
+[node name="StaticBody2D" type="StaticBody2D" parent="uprightTri"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
@@ -150,7 +151,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite6/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="uprightTri/StaticBody2D"]
 
 transform/pos = Vector2( -2, 1 )
 shape = SubResource( 3 )
@@ -160,12 +161,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite7" type="Sprite" parent="."]
+[node name="upleftTri" type="Sprite" parent="."]
 
-transform/pos = Vector2( 857, 37 )
+transform/pos = Vector2( 852.568, 38 )
+transform/scale = Vector2( 1.13037, 1 )
 texture = ExtResource( 5 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="upleftTri"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -181,7 +183,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite7/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upleftTri/StaticBody2D"]
 
 transform/pos = Vector2( -2, 1 )
 shape = SubResource( 4 )
@@ -193,7 +195,7 @@ __meta__ = {
 
 [node name="Sprite5" type="Sprite" parent="."]
 
-transform/pos = Vector2( 632, 39 )
+transform/pos = Vector2( 632, 40 )
 texture = ExtResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite5"]
