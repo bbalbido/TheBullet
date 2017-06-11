@@ -3,7 +3,7 @@ extends KinematicBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"\
-export var MOTION_SPEED = 300 #export means public? means that the node extends will be shown
+export var MOTION_SPEED = 350 #export means public? means that the node extends will be shown
 # TODO(kjayakum): Update the path of the bullet to the bullet scene or group
 onready var bullet = preload("res://Bullet.tscn")
 onready var root_node = get_node(".")
