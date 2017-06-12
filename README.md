@@ -3,7 +3,8 @@
 ### Windows:
 * Run provided .exe file in releases
 ### Mac:
-* Run provided .app in releases
+* Extract provided .zip file in releases
+* Run extracted .app
 ### Linux:
 * Run provided .out file in releases
 
