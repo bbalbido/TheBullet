@@ -41,7 +41,7 @@ textures/normal = ExtResource( 2 )
 params/resize_mode = 0
 params/stretch_mode = 0
 script/script = ExtResource( 3 )
-dest = "res://level-01.tscn"
+dest = "res://Intro.tscn"
 
 [node name="back-button" type="TextureButton" parent="."]
 

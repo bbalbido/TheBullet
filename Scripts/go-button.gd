@@ -13,7 +13,7 @@ func _ready():
 
 func _pressed():
 	# get_tree().change_scene("res://level-01.tscn")
-	if(dest == "res://level-01.tscn"):
+	if(dest == "res://Intro.tscn"):
 		globals.legit = true
 	get_tree().change_scene(dest);
 	
