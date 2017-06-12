@@ -47,6 +47,7 @@ tile_data = IntArray( -458754, 0, -458753, 0, -524288, 0, -524287, 0, -524286, 0
 [node name="Exit" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 548.72, 483.74 )
+dest = "res://winning.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
