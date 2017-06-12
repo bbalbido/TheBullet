@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=1]
+[gd_resource type="TileSet" load_steps=16 format=1]
 
 [ext_resource path="res://Pictures/wall1.png" type="Texture" id=1]
 [ext_resource path="res://Pictures/wall.png" type="Texture" id=2]
@@ -33,6 +33,16 @@ points = Vector2Array( -32, 32, 32, -32, -32, -32 )
 
 custom_solver_bias = 0.0
 points = Vector2Array( -32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32, -32, -32, -32, 32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, 32, 32, -32, -32, -32 )
 
 [resource]
 
@@ -108,4 +118,22 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 7/navigation_offset = Vector2( 32, 32 )
 7/shape_offset = Vector2( 0, 0 )
 7/shapes = [  ]
+8/name = "uprightTri"
+8/texture = ExtResource( 4 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 67, 67 )
+8/occluder_offset = Vector2( 33.5, 33.5 )
+8/navigation_offset = Vector2( 33.5, 33.5 )
+8/shape_offset = Vector2( 33.5, 33.5 )
+8/shapes = [ SubResource( 6 ) ]
+9/name = "upleftTri"
+9/texture = ExtResource( 5 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 67, 67 )
+9/occluder_offset = Vector2( 33.5, 33.5 )
+9/navigation_offset = Vector2( 33.5, 33.5 )
+9/shape_offset = Vector2( 33.5, 33.5 )
+9/shapes = [ SubResource( 7 ) ]
 

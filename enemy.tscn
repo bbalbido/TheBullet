@@ -100,14 +100,6 @@ hframes = 2
 frame = 3
 region_rect = Rect2( 0, 0, 64, 48 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-
-transform/rot = -180.0
-enabled = false
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
-
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 offset = 0.0
@@ -129,5 +121,3 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
-
-
