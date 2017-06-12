@@ -10,6 +10,10 @@ onready var root_node = get_node(".")
 
 onready var shotsFiredLabel = get_node("HUD").get_node("HudCanvas").get_node("ShotsLabel")
 
+onready var cam = get_node("Camera2D")
+var shaken = false
+var shakeTick = 0
+
 var RayNode
 var mouseLoc
 var count
@@ -43,11 +47,17 @@ func _input(event):
 				root_node.get_parent().add_child(cur)
 				count = count - 1
 				shotsFiredLabel._incrementShot()
+				shaken = true
+			else:
+				root_node.get_node("Area2D").get_node("SamplePlayer2D").play("empty")
 
 func _fixed_process(delta):
 	# every frame execution
 	var motion = Vector2()
 	#motion
+	
+	if(shaken):
+		shake()
 	
 #	if(is_colliding()):
 		# TODO(kjayakum): Have the bullet object kill the player, not the enemy!!!
@@ -102,3 +112,27 @@ func _fixed_process(delta):
 		##var collider = get_collider()
 		#if collider extends bullet:
 		#	print("penis");
+
+func shake():
+	var camPos = cam.get_pos()
+	
+	if(shakeTick == 0):
+		camPos.x = camPos.x + 4
+		camPos.y = camPos.y + 4
+		cam.set_pos(camPos)
+		shakeTick = shakeTick + 1
+	elif(shakeTick == 1):
+		camPos.x = camPos.x - 8
+		camPos.y = camPos.y - 8
+		cam.set_pos(camPos)
+		shakeTick = shakeTick + 1
+	elif(shakeTick == 2):
+		camPos.x = camPos.x + 4
+		camPos.y = camPos.y + 4
+		cam.set_pos(camPos)
+		shakeTick = -1
+		shaken = false
+	else:
+		shakeTick = 0
+	
+	pass
