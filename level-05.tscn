@@ -54,12 +54,12 @@ transform/pos = Vector2( 678.57, 276.408 )
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 689.4, 34.5385 )
-transform/rot = 85.2359
+transform/rot = -94.764
 
 [node name="Node2D1" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 573.88, 30.9285 )
-transform/rot = 265.236
+transform/rot = 94.3981
 
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
