@@ -17,6 +17,7 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	get_node("RayCast2D").add_exception(get_node("CollisionShape2D"))
+	get_node("RayCast2D").add_exception(get_node("ShieldWall"))
 	pass
 func _fixed_process(delta):
 	#print(get_node("RayCast2D").get_collision_point())
@@ -38,7 +39,7 @@ func _shoot():
 func _checkAggro():
 	var space_state = get_world_2d().get_direct_space_state()
 	pLoc = playervariables.get("playerLocation")
-	var result =space_state.intersect_ray(get_pos(), pLoc, [self])#.linear_interpolate(get_pos(),2.0) )#need to add thrid paramater of own ri
+	var result =space_state.intersect_ray(get_pos(), pLoc, [self, get_node("ShieldWall")])#.linear_interpolate(get_pos(),2.0) )#need to add thrid paramater of own ri
 	
 	if(result.size() && result.rid.get_id() == playervariables.get("playerRID") ):
 		#if(result.normal == Vector2(0, 1)):
