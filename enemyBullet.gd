@@ -6,7 +6,6 @@ func _on_enemy_body_enter(body):
 	queue_free()
 	if(body.get_name() == "Player"):
 		get_tree().reload_current_scene() #should really be play player death animation and let player reset scene
-		#get_tree().change_scene("res://main-menu.tscn")
 
 func _ready():
 	# Called every time the node is added to the scene.
