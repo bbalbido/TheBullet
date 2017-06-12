@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerPickup.gd" type="Script" id=2]
-[ext_resource path="res://Pictures/animation/atlas_up.png" type="Texture" id=3]
+[ext_resource path="res://sounds/empty-gun.smp" type="Sample" id=3]
+[ext_resource path="res://sounds/reload.smp" type="Sample" id=4]
+[ext_resource path="res://Pictures/animation/atlas_up.png" type="Texture" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,6 +16,21 @@ radius = 10.0
 
 custom_solver_bias = 0.0
 extents = Vector2( 29, 29 )
+
+[sub_resource type="SampleLibrary" id=6]
+
+samples/empty = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 3 )
+}
+samples/reload = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 4 )
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -117,6 +135,17 @@ shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="Area2D"]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 6 )
+config/pitch_random = 0.0
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 transform/rot = 180.0
@@ -127,7 +156,7 @@ type_mask = 15
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 vframes = 3
 hframes = 2
 region_rect = Rect2( 0, 0, 64, 48 )
@@ -154,4 +183,6 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="HUD" parent="." instance=ExtResource( 6 )]
 
+transform/pos = Vector2( -986.1, -579.678 )

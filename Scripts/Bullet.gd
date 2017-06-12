@@ -23,6 +23,7 @@ func _ready():
 	set_contact_monitor(true)
 	set_max_contacts_reported(5)
 	get_node("SamplePlayer").play("shoot")
+	# get_node("KillSample").play("die")
 	pass
 	
 func _on_enemy_body_enter(body):

@@ -58,6 +58,7 @@ transform/pos = Vector2( 54.0414, -95.4212 )
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 155.23, 790.588 )
+dest = "res://level-05.tscn"
 
 [node name="Path2D" type="Path2D" parent="."]
 
