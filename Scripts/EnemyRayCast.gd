@@ -9,8 +9,6 @@ func _ready():
 	force_raycast_update() #Allows the collided node to be deleted within the same frame
 
 func _fixed_process(delta):
-	#angle = get_pos().angle_to_point(playervariables.get("playerLocation"))
-	#set_rot(angle)
 	var self_gtrans = self.get_global_transform()
 	var player_local = self_gtrans.xform_inv(playervariables.get("playerLocation"))
 	set_cast_to(player_local)

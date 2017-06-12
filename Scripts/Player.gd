@@ -47,7 +47,5 @@ func _fixed_process(delta):
 
 	mouseLoc = get_node("Camera2D").get_global_mouse_pos()
 	var angle = get_pos().angle_to_point(mouseLoc)
-	#get_node("Shadow").set_rot(angle)
-	#get_node("Collision1").set_rot(angle)
 	set_rot(angle)
 	playervariables.set("playerLocation", get_global_pos())
