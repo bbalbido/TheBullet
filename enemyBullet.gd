@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed = 700
+var speed = 525
 
 func _on_enemy_body_enter(body):
 	queue_free()
