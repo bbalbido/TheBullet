@@ -62,14 +62,6 @@ _update_shape_index = 0
 
 texture = ExtResource( 3 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-
-transform/rot = -180.0
-enabled = false
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
-
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 offset = 0.0
@@ -79,5 +71,13 @@ rotate = true
 cubic_interp = true
 loop = true
 lookahead = 4.0
+
+[node name="RayCast2D" type="RayCast2D" parent="PathFollow2D"]
+
+transform/rot = 180.0
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
 
 

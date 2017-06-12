@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://BGtiles.tres" type="TileSet" id=1]
 [ext_resource path="res://walls2.tres" type="TileSet" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 129.851, 178.938, 0, 0, 0, 0, 310.351, 207.818, 0, 0, 0, 0, 407.82, 121.178 )
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,5 +58,26 @@ transform/pos = Vector2( 54.0414, -95.4212 )
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 155.23, 790.588 )
+
+[node name="Path2D" type="Path2D" parent="."]
+
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+transform/pos = Vector2( 129.851, 178.938 )
+transform/rot = -9.09037
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = false
+lookahead = 4.0
+
+[node name="Node2D" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -117.85, 16.7816 )
+transform/rot = 9.09037
 
 
