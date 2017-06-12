@@ -78,7 +78,7 @@ curve = SubResource( 1 )
 [node name="LeftEightFollow" type="PathFollow2D" parent="LeftEight"]
 
 transform/pos = Vector2( -3.24347, 0.200531 )
-transform/rot = 0.489696
+transform/rot = 0.489695
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -94,12 +94,13 @@ transform/rot = 90.0
 
 [node name="RightEight" type="Path2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 575.069, 260.388 )
 curve = SubResource( 2 )
 
 [node name="RightEightFollow" type="PathFollow2D" parent="RightEight"]
 
+transform/pos = Vector2( -1.02753, -4.2316 )
+transform/rot = -89.3489
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -112,10 +113,6 @@ script/script = ExtResource( 5 )
 [node name="Node2D" parent="RightEight/RightEightFollow" instance=ExtResource( 6 )]
 
 transform/rot = 90.0
-
-[node name="StandardEnemy" parent="RightEight/RightEightFollow/Node2D" instance=ExtResource( 7 )]
-
-[node name="StandardEnemy 2" parent="RightEight/RightEightFollow/Node2D" instance=ExtResource( 7 )]
 
 [node name="StandardEnemy" parent="." instance=ExtResource( 7 )]
 

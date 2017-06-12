@@ -13,7 +13,8 @@ func _ready():
 func _fixed_process(delta):
 	var self_gtrans = self.get_global_transform()
 	var player_local = self_gtrans.xform_inv(playervariables.get("playerLocation"))
-	set_cast_to(player_local)
+	if(player_local != null):
+		set_cast_to(player_local)
 	if(is_colliding()):
 		if(get_collider()):
 			if(get_collider().get_instance_ID() == playervariables.get("playerRID")):
