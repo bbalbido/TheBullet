@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/EnemyPickupp.gd" type="Script" id=2]
 [ext_resource path="res://Pictures/thug0.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/EnemyRayCast.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -14,7 +15,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Node2D" type="KinematicBody2D" groups=[
+[node name="StandardEnemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 
@@ -28,10 +29,10 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 isAlive = true
 reloadMax = 90
-reload = 90
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 2.5, 0, 0, 2.5, 0, 0 )
@@ -64,20 +65,10 @@ texture = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
-transform/rot = -180.0
-enabled = false
+enabled = true
 cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
-
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
+layer_mask = 524289
+type_mask = 3
+script/script = ExtResource( 4 )
 
 

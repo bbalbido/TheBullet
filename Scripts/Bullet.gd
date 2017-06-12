@@ -16,14 +16,12 @@ func set_dir(var PlayerDir, var MouseLoc):
 	set_linear_velocity(BulletVector * speed);
 	connect("body_enter", self, "_on_enemy_body_enter")
 	#if we want it to be based off of mouse position Don't normalize the Bullect Vector
-	pass
 
 func _ready():
 	# Called every time the node is added to the scene.
 	set_contact_monitor(true)
 	set_max_contacts_reported(5)
 	get_node("SamplePlayer").play("shoot")
-	pass
 	
 func _on_enemy_body_enter(body):
 	if(body.get_name() == "Player"):

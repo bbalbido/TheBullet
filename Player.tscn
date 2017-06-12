@@ -47,6 +47,7 @@ drag_margin/bottom = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.19209e-07, 5.36442e-07 )
@@ -66,14 +67,6 @@ transform/pos = Vector2( -1.19209e-07, 5.36442e-07 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-
-transform/rot = 180.0
-enabled = false
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
 
 [node name="Shadow" type="Sprite" parent="."]
 
