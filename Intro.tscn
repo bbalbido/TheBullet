@@ -33,10 +33,12 @@ func _input(event):
         # do something
 				pressed = 1
 				i+=1
-				if (i == 3):
-					set_texture(p2)
-				elif (i == 4 or i == 6):
+				if (i == 1):
+					set_texture(p1)
+				elif (i == 3 or i == 6):
 					set_texture(p3)
+				elif (i == 4):
+					set_texture(p2)
 				elif (i == 5):
 					set_texture(p1)
 				else:
