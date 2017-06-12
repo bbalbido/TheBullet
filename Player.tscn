@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerPickup.gd" type="Script" id=2]
-[ext_resource path="res://Pictures/sprite0.png" type="Texture" id=3]
+[ext_resource path="res://Pictures/animation/atlas_up.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,6 +13,57 @@ radius = 10.0
 
 custom_solver_bias = 0.0
 extents = Vector2( 29, 29 )
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "New Anim"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "player_idle"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 2, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "player_move"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 3, 4, 5 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -75,9 +126,13 @@ cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
 
-[node name="Shadow" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 3 )
+vframes = 3
+hframes = 2
+frame = 5
+region_rect = Rect2( 0, 0, 64, 48 )
 
 [node name="Collision1" type="CollisionShape2D" parent="." groups=[
 "isPlayer",
@@ -87,5 +142,18 @@ transform/scale = Vector2( 2.4, 2.4 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 4 )
+anims/player_idle = SubResource( 5 )
+anims/player_move = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 
