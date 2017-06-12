@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://walls2.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 524288
+collision/mask = 0
+occluder/light_mask = 1
+tile_data = IntArray( -65523, 0, -65522, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, 13, 0, 14, 7, 15, 7, 16, 7, 17, 7, 18, 0, 65549, 0, 65550, 7, 65551, 7, 65552, 7, 65553, 7, 65554, 0, 131085, 0, 131086, 7, 131087, 7, 131088, 7, 131089, 7, 131090, 0, 196621, 0, 196622, 7, 196623, 7, 196624, 7, 196625, 7, 196626, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 262155, 0, 262156, 0, 262157, 0, 262158, 7, 262159, 7, 262160, 7, 262161, 7, 262162, 0, 327686, 0, 327687, 7, 327688, 7, 327689, 7, 327690, 7, 327691, 7, 327692, 7, 327693, 7, 327694, 7, 327695, 7, 327696, 7, 327697, 7, 327698, 0, 393222, 0, 393223, 7, 393224, 7, 393225, 7, 393226, 7, 393227, 7, 393228, 7, 393229, 7, 393230, 7, 393231, 7, 393232, 7, 393233, 7, 393234, 0, 458758, 0, 458759, 7, 458760, 7, 458761, 7, 458762, 7, 458763, 7, 458764, 7, 458765, 7, 458766, 7, 458767, 7, 458768, 7, 458769, 7, 458770, 0, 524294, 0, 524295, 7, 524296, 7, 524297, 7, 524298, 7, 524299, 7, 524300, 7, 524301, 7, 524302, 7, 524303, 7, 524304, 7, 524305, 7, 524306, 0, 589830, 0, 589831, 7, 589832, 7, 589833, 7, 589834, 7, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 655366, 0, 655367, 7, 655368, 7, 655369, 7, 655370, 7, 655371, 0, 720902, 0, 720903, 7, 720904, 7, 720905, 7, 720906, 7, 720907, 0, 786438, 0, 786439, 0, 786440, 0, 786441, 0, 786442, 0, 786443, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 592, 704 )
+
+[node name="Node2D 2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1024, 144 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 926.614, 31.1461 )
+dest = "res://level-02.tscn"
+
+

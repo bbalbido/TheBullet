@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://walls2.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shield_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
+
+[node name="Level05" type="Node2D" groups=[
+"Level",
+]]
+
+editor/display_folded = true
+
+[node name="BGTiles" type="TileMap" parent="."]
+
+mode = 0
+tile_set = null
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="Walls" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 524288
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -131067, 0, -131066, 0, -131065, 0, -131064, 0, -131063, 0, -131062, 0, -131061, 0, -131060, 0, -131059, 0, -65531, 0, -65530, 7, -65529, 7, -65528, 7, -65527, 7, -65526, 7, -65525, 7, -65524, 7, -65523, 0, 5, 0, 6, 7, 7, 7, 8, 7, 9, 7, 10, 7, 11, 7, 12, 7, 13, 0, 65541, 0, 65542, 7, 65543, 7, 65544, 7, 65545, 7, 65546, 7, 65547, 7, 65548, 7, 65549, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 7, 131084, 7, 131085, 0, 196616, 0, 196617, 7, 196618, 7, 196619, 7, 196620, 7, 196621, 0, 262152, 0, 262153, 7, 262154, 7, 262155, 7, 262156, 7, 262157, 0, 327688, 0, 327689, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 678.57, 276.408 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 689.4, 34.5385 )
+transform/rot = 85.2359
+
+[node name="Node2D1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 573.88, 30.9285 )
+transform/rot = 265.236
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 440.31, 45.3685 )
+dest = "res://level-06.tscn"
+
+

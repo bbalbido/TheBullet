@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Pictures/menu_pictures/main_menu.png" type="Texture" id=1]
+[ext_resource path="res://Pictures/menu_pictures/level_select.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/lvl-select-button.gd" type="Script" id=3]
+[ext_resource path="res://Pictures/menu_pictures/control_button.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/main-menu-to-controls-button.gd" type="Script" id=5]
+
+[node name="main-menu" type="TextureFrame"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = -2.0
+margin/right = 1028.0
+margin/bottom = 600.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="go-button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 659.0
+margin/top = 427.0
+margin/right = 965.0
+margin/bottom = 533.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 3 )
+
+[node name="controls-button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 70.0
+margin/top = 424.0
+margin/right = 376.0
+margin/bottom = 530.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 5 )
+
+

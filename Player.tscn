@@ -1,31 +1,103 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PlayerPickup.gd" type="Script" id=2]
+[ext_resource path="res://sounds/empty-gun.smp" type="Sample" id=3]
+[ext_resource path="res://sounds/reload.smp" type="Sample" id=4]
+[ext_resource path="res://Pictures/animation/atlas_up.png" type="Texture" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="SampleLibrary" id=3]
+
+samples/empty = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 3 )
+}
+samples/reload = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 4 )
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 2, 2 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 3, 4, 5 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 2.4, 0, 0, 2.4, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
-collision/mask = 1
+collision/mask = 524289
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-MOTION_SPEED = 140
+MOTION_SPEED = 163
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 2, 2 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
@@ -34,26 +106,83 @@ drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = false
 smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-shape = SubResource( 1 )
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1.0089, 0, 0, 0.982352, 0.0577803, -1.20025 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 2
+collision/mask = 2
+script/script = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( 0.0577803, -1.20025 )
+transform/scale = Vector2( 1.0089, 0.982352 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="Area2D"]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 3 )
+config/pitch_random = 0.0
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
+transform/rot = 180.0
 enabled = false
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
 
-[node name="Shadow" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
+vframes = 3
+hframes = 2
+region_rect = Rect2( 0, 0, 64, 48 )
+
+[node name="Collision1" type="CollisionShape2D" parent="." groups=[
+"isPlayer",
+]]
+
+transform/scale = Vector2( 2.4, 2.4 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 4 )
+anims/player_idle = SubResource( 5 )
+anims/player_move = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -986.1, -579.678 )
 
 
