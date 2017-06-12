@@ -19,12 +19,12 @@ extents = Vector2( 32, 32 )
 custom_solver_bias = 0.0
 points = Vector2Array( 32, 32, -32, 32, 32, -32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 32, -32, -32, -32, 32, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -32, 32, 32, -32, -32, -32 )
@@ -38,7 +38,6 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 65, 32 )
 texture = ExtResource( 1 )
 
@@ -138,7 +137,7 @@ texture = ExtResource( 4 )
 [node name="StaticBody2D" type="StaticBody2D" parent="uprightTri"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -153,7 +152,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="uprightTri/StaticBody2D"]
 
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 __meta__ = {
@@ -169,7 +168,7 @@ texture = ExtResource( 5 )
 [node name="StaticBody2D" type="StaticBody2D" parent="upleftTri"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, 1 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -185,7 +184,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="upleftTri/StaticBody2D"]
 
 transform/pos = Vector2( -2, 1 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 __meta__ = {
@@ -232,7 +231,7 @@ texture = ExtResource( 7 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.706755, 0.707459, -0.707459, 0.706755, 0, 0 )
+shapes/0/transform = Matrix32( 0.706755, 0.707458, -0.707458, 0.706755, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
