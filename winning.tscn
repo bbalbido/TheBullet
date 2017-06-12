@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Pictures/menu_pictures/winning_menu.png" type="Texture" id=1]
 [ext_resource path="res://Pictures/menu_pictures/back_button.png" type="Texture" id=2]
 [ext_resource path="res://.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/total-score.gd" type="Script" id=4]
 
 [node name="TextureFrame" type="TextureFrame"]
 
@@ -10,10 +11,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 1028.0
+margin/bottom = 604.0
 texture = ExtResource( 1 )
 stretch_mode = 0
 
@@ -23,10 +24,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 408.0
-margin/top = 356.0
-margin/right = 563.0
-margin/bottom = 462.0
+margin/left = 433.0
+margin/top = 406.0
+margin/right = 588.0
+margin/bottom = 512.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -34,5 +35,24 @@ textures/normal = ExtResource( 2 )
 params/resize_mode = 0
 params/stretch_mode = 0
 script/script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 339.0
+margin/top = 314.0
+margin/right = 389.0
+margin/bottom = 328.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "Score:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 4 )
 
 

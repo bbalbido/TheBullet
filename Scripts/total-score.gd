@@ -8,10 +8,15 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	
-	set_text("Shots: " + str(globals.shots))
+	# Calculate score here
+	
+	
+	
+	var score = 0x7FFFFFFF # Max int value
+	print(str(score))
+	score = score / globals.time;
+	score = score / globals.shots;
+	
+	set_text("Score: " + str(score))
 	
 	pass
-
-func _incrementShot():
-	globals.shots = globals.shots + 1
-	set_text("Shots: " + str(globals.shots))

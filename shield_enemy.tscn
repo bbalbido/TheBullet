@@ -21,7 +21,6 @@ points = Vector2Array( 5.5, -4, 8.66025, 5, -8.66025, 5, -5.5, -4, -3, -8, 0, -1
 
 [node name="Node2D" type="KinematicBody2D"]
 
-editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.943552, 0, 0, 0.871177, 0.163113, -0.343313 )
@@ -79,7 +78,6 @@ type_mask = 15
 
 [node name="ShieldWall" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 3.77115, 0, 0, 1.61426, -0.0305872, -13.548 )
