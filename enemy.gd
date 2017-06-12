@@ -7,15 +7,23 @@ onready var bullet = preload("res://enemyBullet.tscn")
 onready var root_node = get_node(".")
 export var isAlive = true
 var aggro = false;
+var animationPlaying = false;
 export var reloadMax = 90
 export var reload = 90
 var pLoc
+var sprite
+var animationPlayer
+
 #export var maxRotate = .000000001;
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_fixed_process(true)
 	set_process_input(true)
+	
+	sprite = get_node("Sprite")
+	animationPlayer = get_node("AnimationPlayer")
+	
 	get_node("RayCast2D").add_exception(get_node("CollisionShape2D"))
 	pass
 func _fixed_process(delta):
@@ -24,8 +32,18 @@ func _fixed_process(delta):
 	_checkAggro()
 	if(aggro && (reload <= 0)):
 		_shoot()
+		
+	if(!aggro):
+		if (animationPlayer.get_current_animation() != "enemy_idle" ):
+			animationPlayer.play("enemy_idle")
+	else:
+		animationPlayer.stop(false)
+		
+		
 	#death
 	reload = reload - 1
+	
+	
 func _shoot():
 	
 	reload = reloadMax
