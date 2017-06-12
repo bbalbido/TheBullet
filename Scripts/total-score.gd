@@ -11,12 +11,22 @@ func _ready():
 	# Calculate score here
 	
 	
-	
 	var score = 0x7FFFFFFF # Max int value
-	print(str(score))
-	score = score / globals.time;
-	score = score / globals.shots;
+	var time = globals.time
+	var shots = globals.shots
 	
-	set_text("Score: " + str(score))
+	if(time == 0):
+		time = 1
+	if(shots == 0):
+		shots = 1
+	
+	print(str(score))
+	score = score / time;
+	score = score / shots;
+	
+	if(globals.legit == false):
+		set_text("Start from level 1 to get a score.")
+	else:
+		set_text("Score: " + str(score))
 	
 	pass

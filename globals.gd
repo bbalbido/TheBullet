@@ -6,6 +6,7 @@ extends Node
 
 var time = 0
 var shots = 0
+var legit = false;
 
 func _ready():
 	# Called every time the node is added to the scene.
