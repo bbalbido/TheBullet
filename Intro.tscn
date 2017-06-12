@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Intro.gd" type="Script" id=1]
+[ext_resource path="res://Pictures/intro_screen.png" type="Texture" id=2]
+[ext_resource path="res://Pictures/portrait0.png" type="Texture" id=3]
+[ext_resource path="res://Pictures/text0.png" type="Texture" id=4]
+[ext_resource path="res://Pictures/textguard.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Sprite
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+var i = 0
+var pressed = 0
+var p0 = preload(\"Pictures/portrait0.png\")
+var p1 = preload(\"Pictures/portrait1.png\")
+var p2 = preload(\"Pictures/portrait2.png\")
+var p3 = preload(\"Pictures/portrait3.png\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_process_input(true)
+	pass
+
+func _input(event):
+	if(event.type == InputEvent.MOUSE_BUTTON):
+		if event.button_index == BUTTON_LEFT and event.pressed == false:
+			while (i != 7 and pressed == 0):
+        # do something
+				pressed = 1
+				i+=1
+				if (i == 1):
+					set_texture(p1)
+				elif (i == 3 or i == 6):
+					set_texture(p3)
+				elif (i == 4):
+					set_texture(p2)
+				elif (i == 5):
+					set_texture(p1)
+				else:
+					set_texture(p0)
+			pressed = 0
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Sprite
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+var i = 0
+var pressed = 0
+var text0 = preload(\"Pictures/text0.png\")
+var text1 = preload(\"Pictures/text1.png\")
+var text2 = preload(\"Pictures/text2.png\")
+var text3 = preload(\"Pictures/text3.png\")
+var text4 = preload(\"Pictures/text4.png\")
+var text5 = preload(\"Pictures/text5.png\")
+var text6 = preload(\"Pictures/text6.png\")
+var text7 = preload(\"Pictures/text7.png\")
+
+var text = [text0, text1, text2, text6, text7, text4, text5]
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_process_input(true)
+	pass
+
+func _input(event):
+	if(event.type == InputEvent.MOUSE_BUTTON):
+		if event.button_index == BUTTON_LEFT and event.pressed == false:
+			if(i == 6 and pressed == 0):
+				get_tree().change_scene(\"res://level-01.tscn\");
+				
+			
+			while (i != 6 and pressed == 0):
+        # do something
+				pressed = 1
+				i+=1
+				set_texture(text[i])
+			pressed = 0
+"
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Sprite
+
+var i = 0
+var pressed = 0
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	hide()
+	set_process_input(true)
+	pass
+
+func _input(event):
+	if(event.type == InputEvent.MOUSE_BUTTON):
+		if event.button_index == BUTTON_LEFT and event.pressed == false:
+			while (i != 7 and pressed == 0):
+        # do something
+				pressed = 1
+				i+=1
+				
+				if (i == 1):
+					show()
+				else:
+					hide()
+			pressed = 0
+				
+			
+			
+							"
+
+[node name="Intro" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Screen" type="Sprite" parent="."]
+
+transform/pos = Vector2( 513.27, 301.267 )
+texture = ExtResource( 2 )
+
+[node name="Portrait" type="Sprite" parent="."]
+
+transform/pos = Vector2( 140.384, 149.652 )
+texture = ExtResource( 3 )
+script/script = SubResource( 1 )
+
+[node name="Textbox" type="Sprite" parent="."]
+
+transform/pos = Vector2( 629.859, 144.903 )
+texture = ExtResource( 4 )
+script/script = SubResource( 2 )
+
+[node name="GuardText" type="Sprite" parent="."]
+
+transform/pos = Vector2( 348.689, 463.059 )
+texture = ExtResource( 5 )
+script/script = SubResource( 3 )
+
+

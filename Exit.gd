@@ -17,8 +17,9 @@ func _ready():
 
 func on_exit(body):
 	if(body.get_name() == "Player"):
-		globalSound.exitSound()
-		get_tree().change_scene(dest)
+		if(body.count > 0):
+			globalSound.exitSound()
+			get_tree().change_scene(dest)
 
 func _process(delta):
 	pass
