@@ -39,7 +39,10 @@ func _shoot():
 func _checkAggro():
 	var space_state = get_world_2d().get_direct_space_state()
 	pLoc = playervariables.get("playerLocation")
-	var result =space_state.intersect_ray(get_pos(), pLoc, [self, get_node("ShieldWall")])#.linear_interpolate(get_pos(),2.0) )#need to add thrid paramater of own ri
+	var ignore = [self]
+	if(has_node("ShieldWall")):
+		ignore = [self, get_node("ShieldWall")]
+	var result =space_state.intersect_ray(get_pos(), pLoc, ignore)#.linear_interpolate(get_pos(),2.0) )#need to add thrid paramater of own ri
 	
 	if(result.size() && result.rid.get_id() == playervariables.get("playerRID") ):
 		#if(result.normal == Vector2(0, 1)):
