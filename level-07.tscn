@@ -3,8 +3,8 @@
 [ext_resource path="res://BGtiles.tres" type="TileSet" id=1]
 [ext_resource path="res://walls2.tres" type="TileSet" id=2]
 [ext_resource path="res://Exit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shield_enemy.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
@@ -49,11 +49,23 @@ tile_data = IntArray( -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0
 
 transform/pos = Vector2( 1090.27, 853.818 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Node2D 4" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 334.265, 5.81836 )
+transform/pos = Vector2( 1414.27, -250.182 )
 
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
+[node name="Node2D5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 906.266, 141.818 )
+
+[node name="Node2D6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 842.266, -246.182 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 318.265, 9.81836 )
+
+[node name="Node2D" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1338.27, 437.818 )
 
@@ -64,9 +76,5 @@ transform/pos = Vector2( 1098.27, 553.818 )
 [node name="Node2D 3" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 730.266, 453.818 )
-
-[node name="Node2D" parent="Node2D 3" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 748, -596 )
 
 

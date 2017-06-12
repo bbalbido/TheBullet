@@ -24,7 +24,7 @@ func _ready():
 	animationPlayer = get_node("AnimationPlayer")
 	#get_node("RayCast2D").add_exception(get_node("CollisionShape2D"))
 	#get_node("RayCast2D").add_exception(get_node("ShieldWall"))
->>>>>>> 465fc1d1ce4cb7d84c190636422e5e86c0b02589
+
 	pass
 func _fixed_process(delta):
 	#print(get_node("RayCast2D").get_collision_point())
