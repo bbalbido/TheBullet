@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/EnemyPickupp.gd" type="Script" id=2]
 [ext_resource path="res://Pictures/animation/atlas_shield.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/EnemyRayCast.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -47,7 +48,7 @@ tracks/0/keys = {
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.943552, 0, 0, 0.871177, 0.163113, -0.343313 )
+shapes/0/transform = Matrix32( -0.943552, 8.24879e-08, -7.61607e-08, -0.871177, 0.163113, -0.343313 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 524289
@@ -55,13 +56,12 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 isAlive = true
 reloadMax = 90
-reload = 90
 
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 3.04723, 0, 0, 2.13083, 0.453683, 7.30829 )
+shapes/0/transform = Matrix32( -2.96481, 2.59192e-07, -1.78685e-07, -2.04392, 0.448031, -7.0589 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -73,15 +73,18 @@ script/script = ExtResource( 2 )
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
 
-transform/pos = Vector2( 0.453683, 7.30829 )
-transform/scale = Vector2( 3.04723, 2.13083 )
+transform/pos = Vector2( 0.448031, -7.0589 )
+transform/rot = 180.0
+transform/scale = Vector2( 2.96481, 2.04392 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="WorldCollision" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0.163113, -0.343313 )
+transform/rot = 180.0
 transform/scale = Vector2( 0.943552, 0.871177 )
 shape = SubResource( 1 )
 trigger = false
@@ -89,6 +92,7 @@ _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/rot = 180.0
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 3
@@ -96,13 +100,19 @@ hframes = 3
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 transform/rot = -180.0
-enabled = false
+enabled = true
 cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
+layer_mask = 524289
+type_mask = 3
+script/script = ExtResource( 4 )
 
 [node name="ShieldWall" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( -0.135951, 0.970788 )
+transform/rot = 180.0
+transform/scale = Vector2( 1.05846, 1.15427 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 3.77115, 0, 0, 1.61426, -0.0305872, -13.548 )

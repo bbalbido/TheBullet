@@ -8,6 +8,7 @@
 
 [node name="main-menu" type="TextureFrame"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2

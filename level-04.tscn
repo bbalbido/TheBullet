@@ -1,16 +1,24 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://BGtiles.tres" type="TileSet" id=1]
 [ext_resource path="res://walls2.tres" type="TileSet" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/EnemyPath.gd" type="Script" id=5]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = {
-"points": Vector2Array( 0, 0, 0, 0, 129.851, 178.938, 0, 0, 0, 0, 310.351, 207.818, 0, 0, 0, 0, 407.82, 121.178 )
+"points": Vector2Array( 0, 0, 0, 0, -126.904, 196.232, 0, 0, 0, 0, 129.051, 194.016, 0, 0, 0, 0, 127.943, 449.971, 0, 0, 0, 0, -129.12, 449.971, 0, 0, 0, 0, -126.904, 196.232 )
+}
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 0.519531, 2.32648, 0, 0, 0, 0, -256.544, 2.32648, 0, 0, 0, 0, -255.436, -261.385, 0, 0, 0, 0, 0.519531, -262.493, 0, 0, 0, 0, 0.519531, 2.32648 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -60,25 +68,45 @@ transform/pos = Vector2( 54.0414, -95.4212 )
 transform/pos = Vector2( 155.23, 790.588 )
 dest = "res://level-05.tscn"
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="PathLeft" type="Path2D" parent="."]
 
 curve = SubResource( 1 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathLeftFollow" type="PathFollow2D" parent="PathLeft"]
 
-transform/pos = Vector2( 129.851, 178.938 )
-transform/rot = -9.09037
+transform/pos = Vector2( -126.904, 196.232 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
-rotate = false
-cubic_interp = false
-loop = false
+rotate = true
+cubic_interp = true
+loop = true
 lookahead = 4.0
+script/script = ExtResource( 5 )
 
-[node name="Node2D" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
+[node name="Node2D" parent="PathLeft/PathLeftFollow" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -117.85, 16.7816 )
-transform/rot = 9.09037
+transform/pos = Vector2( 0.39299, -0.391602 )
+transform/rot = -90.0
+
+[node name="PathRight" type="Path2D" parent="."]
+
+transform/pos = Vector2( 448.753, 450.969 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRight"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+script/script = ExtResource( 5 )
+
+[node name="StandardEnemy" parent="PathRight/PathFollow2D" instance=ExtResource( 6 )]
+
+transform/rot = -90.0
 
 

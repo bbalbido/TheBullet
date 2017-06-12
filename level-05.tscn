@@ -5,7 +5,11 @@
 [ext_resource path="res://shield_enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Exit.tscn" type="PackedScene" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level05" type="Node2D" groups=[
+"Level",
+]]
+
+editor/display_folded = true
 
 [node name="BGTiles" type="TileMap" parent="."]
 
