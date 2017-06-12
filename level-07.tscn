@@ -48,6 +48,7 @@ tile_data = IntArray( -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0
 [node name="Exit" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1090.27, 853.818 )
+dest = "res://level-08.tscn"
 
 [node name="Node2D 4" parent="." instance=ExtResource( 4 )]
 
