@@ -60,5 +60,6 @@ transform/rot = 265.236
 [node name="Exit" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 440.31, 45.3685 )
+dest = "res://level-06.tscn"
 
 
