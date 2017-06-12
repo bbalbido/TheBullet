@@ -22,6 +22,7 @@ func _ready():
 	set_process_input(true)
 	sprite = get_node("Sprite")
 	animationPlayer = get_node("AnimationPlayer")
+	animationPlayer.set_speed(0.5)
 	#get_node("RayCast2D").add_exception(get_node("CollisionShape2D"))
 	#get_node("RayCast2D").add_exception(get_node("ShieldWall"))
 
