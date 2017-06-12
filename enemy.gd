@@ -30,4 +30,5 @@ func _fixed_process(delta):
 func shoot():
 	reload = reloadMax
 	var cur = bullet.instance()
-	add_child(cur)
+	cur.set_path(get_global_pos())
+	get_tree().get_root().add_child(cur)
